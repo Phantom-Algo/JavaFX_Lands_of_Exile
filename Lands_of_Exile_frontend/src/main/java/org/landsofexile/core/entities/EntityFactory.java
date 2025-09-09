@@ -2,6 +2,8 @@ package org.landsofexile.core.entities;
 
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.dsl.FXGL;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import org.landsofexile.core.components.BasePlayerComponent;
 
 public class EntityFactory {
@@ -18,8 +20,12 @@ public class EntityFactory {
                 .type(entityType)
                 .build();
 
-        // 根据实体类型判断并绑定相应的组件
+        // 根据实体类型判断并绑定相应的组件和视图
         if (isPlayerType(entityType)) {
+            // TEST：创建玩家的视觉表现 - 一个蓝色方块
+            Rectangle playerRect = new Rectangle(32, 32, Color.BLUE);
+            entity.getViewComponent().addChild(playerRect);
+
             // 玩家类型实体绑定BasePlayerComponent
             entity.addComponent(new BasePlayerComponent());
         } else if (isNPCType(entityType)) {
