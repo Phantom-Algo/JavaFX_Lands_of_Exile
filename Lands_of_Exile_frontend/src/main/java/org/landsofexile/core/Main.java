@@ -22,6 +22,7 @@ public class Main extends GameApplication {
     @Override
     protected void initGame() {
         // 设置绿色背景
+
         FXGL.getGameScene().setBackgroundColor(Color.GREEN);
 
         // 创建玩家实体并放置在屏幕中央
